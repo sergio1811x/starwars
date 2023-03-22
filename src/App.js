@@ -1,16 +1,12 @@
-import { useEffect } from 'react';
-import { getStarWarsPeople } from './fetch';
+import React from 'react';
+import Navigation from './components/Navigation';
 
 function App() {
-  useEffect(() => {
-    getStarWarsPeople()
-      .then((people) => {
-        console.log(people.map((p) => p));
-      })
-      .catch(console.error);
-  }, []);
-
-  return <></>;
+  return (
+    <>
+      <Navigation />
+    </>
+  );
 }
 
 export default App;

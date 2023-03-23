@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 import './index.css';
 import ReactPaginate from 'react-paginate';
 
-const Cards = memo(({ data }) => {
+const Cards = memo(({ newData }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [width, setWidth] = useState(window.screen.width);
 
@@ -20,8 +20,8 @@ const Cards = memo(({ data }) => {
 
   const size = width > 767 ? 9 : 10;
   const offset = currentPage * size;
-  const currentPageData = data?.slice(offset, offset + size);
-  const pageCount = Math.ceil(data?.length / size);
+  const currentPageData = newData?.slice(offset, offset + size);
+  const pageCount = Math.ceil(newData?.length / size);
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected);

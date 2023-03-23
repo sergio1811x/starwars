@@ -7,8 +7,11 @@ import Loading from '../../assets/Loading';
 
 const Characters = memo(() => {
   const [data, setData] = useState([]);
+  const [newData, setNewData] = useState([]);
+
   const [selectData, setSelectData] = useState(['']);
   const [optionValue, setOptionValue] = useState('gender');
+  const [optionValueTwo, setOptionValueTwo] = useState('All');
 
   useEffect(() => {
     getStarWarsPeople()
@@ -26,8 +29,14 @@ const Characters = memo(() => {
       ? setSelectData(['All', 'male', 'n/a', 'female', 'hermaphrodite', 'none'])
       : setSelectData(['All', ...select]);
   }, [optionValue]);
-
-  console.log(data);
+  /*фильтрация по данным из выпадающих списков*/
+  const filterData =
+    optionValueTwo !== 'All' ? data.filter((el) => el[optionValue].includes(optionValueTwo)) : data;
+  useEffect(() => {
+    if (optionValueTwo === 'male') {
+      setNewData(filterData.filter((x) => !x[optionValue].includes('female')));
+    } else setNewData(filterData);
+  }, [optionValueTwo]);
 
   return (
     <>
@@ -48,17 +57,17 @@ const Characters = memo(() => {
                 <option value={'hair_color'}>hair color</option>
                 <option value={'skin_color'}>skin color</option>
               </select>
-              <select className={'select'}>
+              <select className={'select'} onChange={(e) => setOptionValueTwo(e.target.value)}>
                 {selectData?.map((el, index) => {
                   return (
-                    <option value={index} key={index}>
+                    <option value={el} key={index}>
                       {el}
                     </option>
                   );
                 })}
               </select>
             </div>
-            <Cards data={data} />
+            <Cards newData={newData} />
           </div>
         </div>
       )}

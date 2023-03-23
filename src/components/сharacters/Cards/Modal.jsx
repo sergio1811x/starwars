@@ -1,16 +1,20 @@
 import React from 'react';
 
-const Modal = ({ modalData }) => {
+const Modal = ({ modalData, modalRef, setIsComponentVisible }) => {
   console.log(modalData);
   return (
     <>
       <div className={'modal-wrapper'} />
 
-      <div className={'modal'}>
-        <img className={'close'} src={require('../../assets/images/close.png')} />
+      <div className={'modal'} ref={modalRef}>
+        <img
+          className={'close'}
+          src={require('../../../assets/images/close.png')}
+          onClick={() => setIsComponentVisible(false)}
+        />
         <div className={'modal-left'}>
           <img
-            src={require(`../../assets/images/${
+            src={require(`../../../assets/images/${
               (modalData.gender === 'male' && 'male') ||
               (modalData.gender === 'female' && 'female') ||
               (modalData.gender !== ('male' || 'female') && 'gender')

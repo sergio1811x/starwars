@@ -156,14 +156,12 @@
 .modal-wrapper {
   width: 100vw;
   position: absolute;
-  height: 100vh;
+  height: 200vh;
   background: #212121;
   opacity: 0.5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   z-index: 1;
 }
-
-
 
 .modal {
   width: 55.6vw;
@@ -175,10 +173,9 @@
   z-index: 222;
 }
 
-.close{
+.close {
   position: absolute;
   right: 0;
-
 }
 
 .modal-left {
@@ -191,21 +188,20 @@
   justify-content: center;
 }
 
-
 .modal-left img {
-   /*width: 18vw;*/
+  /*width: 18vw;*/
 }
 
 .modal-right {
   display: flex;
   width: 30.3vw;
-  padding: 4vh 0 0 2vw ;
+  padding: 4vh 0 0 2vw;
   text-align: left;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .modal-right-name {
-  color: #FDFDFD;
+  color: #fdfdfd;
   font-weight: 700;
   font-size: 2.25rem;
 }
@@ -213,9 +209,9 @@
 .modal-right-parameters {
   width: 18.3vw;
   height: 15.6vh;
-  background: #FDFDFD;
+  background: #fdfdfd;
   display: flex;
-  margin: 3vh 0 0 0 ;
+  margin: 3vh 0 0 0;
   box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
   border-radius: 8px;
 }
@@ -229,14 +225,13 @@
 }
 
 .modal-parameters-bottom {
-
   width: 5.7vw;
   height: 7.7vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #FDFDFD;
+  background: #fdfdfd;
   border-radius: 8px;
 }
 
@@ -252,6 +247,9 @@
   }
   .select option {
     font-size: 12px;
+  }
+  .modal-left img {
+    width: 90%;
   }
 }
 
@@ -276,6 +274,9 @@
   }
   .card-bottom span {
     font-size: 0.75rem;
+  }
+  .modal {
+    width: 60vw;
   }
 }
 
@@ -305,6 +306,30 @@
   }
   .pagination a {
     padding: 4px;
+  }
+  .modal {
+    width: 90vw;
+    top: 20%;
+
+  }
+  .modal-left {
+    width: 35vw;
+  }
+  .modal-right-parameters {
+    width: 40vw;
+  }
+  .parameters-text {
+    font-size: 1rem;
+  }
+  .modal-parameters-bottom {
+    width: 15vw;
+    height: 90%;
+  }
+  .modal-right {
+    width: 100%;
+  }
+  .modal-right-name {
+    font-size: 1.5rem;
   }
 }
 

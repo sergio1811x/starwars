@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const Modal = ({ modalData, modalRef, setIsComponentVisible }) => {
+const Modal = memo(({ modalData, modalRef, setIsComponentVisible }) => {
   console.log(modalData);
   return (
     <>
@@ -49,6 +49,6 @@ const Modal = ({ modalData, modalRef, setIsComponentVisible }) => {
       </div>
     </>
   );
-};
+});
 
 export default Modal;

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-const Card = ({ currentPageData, setIsComponentVisible, setModalData }) => {
+const Card = memo(({ currentPageData, setIsComponentVisible, setModalData }) => {
   return (
     <>
       {currentPageData?.map((el, index) => {
@@ -54,6 +54,6 @@ const Card = ({ currentPageData, setIsComponentVisible, setModalData }) => {
       })}
     </>
   );
-};
+});
 
 export default Card;

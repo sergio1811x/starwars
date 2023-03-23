@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import '../index.css';
 import ReactPaginate from 'react-paginate';
 import Modal from './Modal';
@@ -9,6 +9,7 @@ const Cards = memo(({ newData }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [width, setWidth] = useState(window.screen.width);
   const [modalData, setModalData] = useState([]);
+  const modalData1 = useRef([]);
 
   const { ref: modalRef, isComponentVisible, setIsComponentVisible } = useComponentVisible();
 
@@ -39,6 +40,7 @@ const Cards = memo(({ newData }) => {
           currentPageData={currentPageData}
           setIsComponentVisible={setIsComponentVisible}
           setModalData={setModalData}
+          modalData1={modalData1}
         />
         {/*Модальное окно*/}
         {isComponentVisible && (

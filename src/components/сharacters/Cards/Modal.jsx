@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 
 const Modal = memo(({ modalData, modalRef, setIsComponentVisible }) => {
-  console.log(modalData);
   return (
     <>
       <div className={'modal-wrapper'} />
@@ -21,6 +20,25 @@ const Modal = memo(({ modalData, modalRef, setIsComponentVisible }) => {
             }.png`)}
             alt={'img'}
           />
+          <div className={'card-bottom modal-left-bottom'}>
+            {modalData.gender !== 'unknown' && (
+              <span
+                style={{
+                  background:
+                    (modalData.gender === 'female' && '#C956FF') ||
+                    (modalData.gender === 'hermaphrodite' && '#F5DB13') ||
+                    ((modalData.gender === 'n/a' || modalData.gender === 'none') && '#bab8b3') ||
+                    (modalData.gender === 'hermaphrodite' && '#F5DB13') ||
+                    (modalData.gender === 'male' && '#73D677'),
+                }}
+              >
+                {modalData.gender}
+              </span>
+            )}
+            {modalData.birth_year !== 'unknown' && (
+              <span style={{ background: '#07D6F2' }}>{modalData.birth_year}</span>
+            )}
+          </div>
         </div>
         <div className={'modal-right'}>
           <span className={'modal-right-name'}>{modalData.name}</span>

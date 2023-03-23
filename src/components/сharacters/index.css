@@ -187,6 +187,11 @@
   display: flex;
   justify-content: center;
 }
+.modal-left-bottom {
+  position: absolute;
+  top: 90%;
+  left:30%;
+}
 
 .modal-left img {
   /*width: 18vw;*/
@@ -250,6 +255,10 @@
   }
   .modal-left img {
     width: 90%;
+  }
+
+  .modal-left-bottom {
+    left:20%;
   }
 }
 
@@ -330,6 +339,9 @@
   }
   .modal-right-name {
     font-size: 1.5rem;
+  }
+  .modal-left-bottom {
+    left:0%;
   }
 }
 

@@ -1,10 +1,13 @@
 import React, { memo, useEffect, useState } from 'react';
 import './index.css';
 import ReactPaginate from 'react-paginate';
+import Modal from './Modal';
 
 const Cards = memo(({ newData }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [width, setWidth] = useState(window.screen.width);
+  const [openModal, setOpenModal] = useState(false);
+  const [modalData, setModalData] = useState([]);
 
   useEffect(() => {
     // считаю ширину экрана, чтоб выводить 9 или 10 карточек взависимости от значения
@@ -31,7 +34,14 @@ const Cards = memo(({ newData }) => {
       <div className={'card-block'}>
         {currentPageData.map((el, index) => {
           return (
-            <div className={'card'} key={index}>
+            <div
+              className={'card'}
+              key={index}
+              onClick={() => {
+                setOpenModal(true);
+                setModalData(el);
+              }}
+            >
               <div className={'card-items'}>
                 <div className={'card-name'}>{el.name}</div>
                 <div className={'card-parameters'}>
@@ -48,7 +58,6 @@ const Cards = memo(({ newData }) => {
                     </div>
                   )}
                 </div>
-
                 <div className={'card-bottom'}>
                   {el.gender !== 'unknown' && (
                     <span
@@ -72,8 +81,11 @@ const Cards = memo(({ newData }) => {
             </div>
           );
         })}
+        {/*Модальное окно*/}
+        {openModal && <Modal modalData={modalData} />}
       </div>
       <div className={'pagination-block'}>
+        {/*Пагинация*/}
         <ReactPaginate
           nextLabel="next >"
           previousLabel="< prev"

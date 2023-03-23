@@ -17,6 +17,7 @@ const Characters = memo(() => {
     getStarWarsPeople()
       .then((people) => {
         setData(people.map((p) => p));
+        setNewData(people.map((p) => p));
       })
       .catch(console.error);
   }, []);
@@ -32,6 +33,7 @@ const Characters = memo(() => {
   /*фильтрация по данным из выпадающих списков*/
   const filterData =
     optionValueTwo !== 'All' ? data.filter((el) => el[optionValue].includes(optionValueTwo)) : data;
+
   useEffect(() => {
     if (optionValueTwo === 'male') {
       setNewData(filterData.filter((x) => !x[optionValue].includes('female')));

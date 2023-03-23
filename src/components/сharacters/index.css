@@ -45,6 +45,8 @@
   cursor: pointer;
 }
 
+/*////////////////////////////////////////////////////////////////////////////////*/
+
 .card-block {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -149,8 +151,96 @@
   color: rgb(198, 197, 202);
   border: 1px solid rgb(198, 197, 202);
 }
+/*///////////////////////////////////////////////////////////////////////////////////*/
+
+.modal-wrapper {
+  width: 100vw;
+  position: absolute;
+  height: 100vh;
+  background: #212121;
+  opacity: 0.5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
 
 
+
+.modal {
+  width: 55.6vw;
+  height: 41.2vh;
+  background: linear-gradient(180deg, #17002f 42.19%, #1f2a63 100%);
+  border-radius: 16px;
+  position: absolute;
+  display: flex;
+  z-index: 222;
+}
+
+.close{
+  position: absolute;
+  right: 0;
+
+}
+
+.modal-left {
+  width: 27.3vw;
+  background: #1f2a63;
+  border-radius: 16px;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+
+.modal-left img {
+   /*width: 18vw;*/
+}
+
+.modal-right {
+  display: flex;
+  width: 30.3vw;
+  padding: 4vh 0 0 2vw ;
+  text-align: left;
+  flex-direction: column
+}
+
+.modal-right-name {
+  color: #FDFDFD;
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+
+.modal-right-parameters {
+  width: 18.3vw;
+  height: 15.6vh;
+  background: #FDFDFD;
+  display: flex;
+  margin: 3vh 0 0 0 ;
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  border-radius: 8px;
+}
+
+.parameters-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2vh;
+  font-size: 1.25rem;
+}
+
+.modal-parameters-bottom {
+
+  width: 5.7vw;
+  height: 7.7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FDFDFD;
+  border-radius: 8px;
+}
+
+/*////////////////////////////////////////////////////////////////////////*/
 
 @media only screen and (max-width: 1200px) {
   .characters-block {
@@ -162,9 +252,7 @@
   }
   .select option {
     font-size: 12px;
-
   }
-
 }
 
 @media only screen and (max-width: 900px) {
@@ -211,36 +299,29 @@
   .select {
     font-size: 14px;
   }
-  .pagination{
+  .pagination {
     gap: 4px;
     justify-content: center;
-
-
-  }.pagination a{
-     padding: 4px;
-
-
-   }
+  }
+  .pagination a {
+    padding: 4px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .card {
-
     height: 20vh;
   }
   .characters-block {
     height: 140vh;
-
   }
-
 }
 
 @media only screen and (max-width: 350px) {
   .card {
-
     height: 25vh;
   }
   .characters-block {
     height: 175vh;
-
-  }  }
+  }
+}

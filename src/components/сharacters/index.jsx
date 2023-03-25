@@ -8,7 +8,6 @@ import Loading from '../../helpers/Loading';
 const Characters = memo(() => {
   const [data, setData] = useState([]);
   const [newData, setNewData] = useState([]);
-
   const [selectData, setSelectData] = useState(['']);
   const [optionValue, setOptionValue] = useState('gender');
   const [optionValueTwo, setOptionValueTwo] = useState('All');

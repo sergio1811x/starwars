@@ -16,7 +16,7 @@ const Home = () => {
           <h2 className={'home-info'}>
             You can find out all the information about your favorite characters
           </h2>
-          <Link to={'/Characters'}>
+          <Link to={'/characters'}>
             <button className={'home-button'}>See more...</button>
           </Link>
         </div>

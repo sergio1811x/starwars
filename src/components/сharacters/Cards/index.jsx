@@ -9,7 +9,6 @@ const Cards = memo(({ newData }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [width, setWidth] = useState(window.screen.width);
   const [modalData, setModalData] = useState([]);
-  const modalData1 = useRef([]);
 
   const { ref: modalRef, isComponentVisible, setIsComponentVisible } = useComponentVisible();
 
@@ -30,7 +29,7 @@ const Cards = memo(({ newData }) => {
   const currentPageData = newData?.slice(offset, offset + size);
   const pageCount = Math.ceil(newData?.length / size);
 
-  const handlePageClick = (event) => {
+  const handlePagePaginateClick = (event) => {
     setCurrentPage(event.selected);
   };
   return (
@@ -40,7 +39,6 @@ const Cards = memo(({ newData }) => {
           currentPageData={currentPageData}
           setIsComponentVisible={setIsComponentVisible}
           setModalData={setModalData}
-          modalData1={modalData1}
         />
         {/*Модальное окно*/}
         {isComponentVisible && (
@@ -56,7 +54,7 @@ const Cards = memo(({ newData }) => {
         <ReactPaginate
           nextLabel="next >"
           previousLabel="< prev"
-          onPageChange={handlePageClick}
+          onPageChange={handlePagePaginateClick}
           pageRangeDisplayed={10}
           pageCount={pageCount}
           containerClassName={'pagination'}

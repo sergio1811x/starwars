@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
+/*клик вне окна закрывает модалку*/
 export function useComponentVisible() {
   const [isComponentVisible, setIsComponentVisible] = useState(false);
   const ref = useRef(null);

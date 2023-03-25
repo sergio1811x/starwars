@@ -3,7 +3,7 @@ import './index.css';
 import Header from '../header';
 import { getStarWarsPeople } from '../../fetch';
 import Cards from './Cards';
-import Loading from '../../assets/Loading';
+import Loading from '../../helpers/Loading';
 
 const Characters = memo(() => {
   const [data, setData] = useState([]);

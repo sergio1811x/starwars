@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 const Modal = memo(({ modalData, modalRef, setIsComponentVisible }) => {
   return (
     <>
-      <div className={'modal-wrapper'} />
+      <div className={'modal__wrapper'} />
 
       <div className={'modal'} ref={modalRef}>
         <img
@@ -11,17 +11,10 @@ const Modal = memo(({ modalData, modalRef, setIsComponentVisible }) => {
           src={require('../../../assets/images/close.png')}
           onClick={() => setIsComponentVisible(false)}
         />
-        <div className={'modal-left'}>
-          <img
-            src={require(`../../../assets/images/${
-              (modalData.gender === 'male' && 'male') ||
-              (modalData.gender === 'female' && 'female') ||
-              (modalData.gender !== ('male' || 'female') && 'gender')
-            }.png`)}
-            alt={'img'}
-          />
-          <div className={'card-bottom modal-left-bottom'}>
-            {modalData.gender !== 'unknown' && (
+        <div className={'modal__left'}>
+          <img src={modalData.image} alt={'img'} />
+          <div className={'card__bottom modal__left_bottom'}>
+            {modalData.gender && (
               <span
                 style={{
                   background:
@@ -35,29 +28,29 @@ const Modal = memo(({ modalData, modalRef, setIsComponentVisible }) => {
                 {modalData.gender}
               </span>
             )}
-            {modalData.birth_year !== 'unknown' && (
+            {modalData.birth_year && (
               <span style={{ background: '#07D6F2' }}>{modalData.birth_year}</span>
             )}
           </div>
         </div>
-        <div className={'modal-right'}>
-          <span className={'modal-right-name'}>{modalData.name}</span>
-          <div className={'modal-right-parameters'}>
-            <div className={'parameters-text'}>
-              <span>hair color : {modalData.hair_color} </span>
-              <span>skin color : {modalData.skin_color} </span>
-              <span>year color : {modalData.eye_color} </span>
+        <div className={'modal__right'}>
+          <span className={'modal__right_name'}>{modalData.name}</span>
+          <div className={'modal__right_parameters'}>
+            <div className={'parameters__text'}>
+              <span>hair color : {modalData.hairColor} </span>
+              <span>skin color : {modalData.skinColor} </span>
+              <span>year color : {modalData.eyeColor} </span>
             </div>
           </div>
-          <div className={'card-parameters   '}>
-            {modalData.height !== 'unknown' && (
-              <div className={'parameters-block modal-parameters-bottom '}>
+          <div className={'card__parameters'}>
+            {modalData.height && (
+              <div className={'parameters__block modal__parameters_bottom '}>
                 <span>{modalData.height}</span>
                 <p>height</p>
               </div>
             )}
-            {modalData.mass !== 'unknown' && (
-              <div className={'parameters-block modal-parameters-bottom '}>
+            {modalData.mass && (
+              <div className={'parameters__block modal__parameters_bottom '}>
                 <span>{modalData.mass}</span>
                 <p>mass</p>
               </div>

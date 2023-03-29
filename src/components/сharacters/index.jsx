@@ -1,34 +1,26 @@
 import React, { memo, useEffect, useState } from 'react';
 import './index.css';
 import Header from '../header';
-import { getStarWarsPeople } from '../../fetch';
 import Cards from './Cards';
 import Loading from '../../helpers/Loading';
+import axios from 'axios';
 
 const Characters = memo(() => {
   const [data, setData] = useState([]);
   const [newData, setNewData] = useState([]);
-  const [selectData, setSelectData] = useState(['']);
+  const [selectData, setSelectData] = useState(['All', 'male', 'female']);
   const [optionValue, setOptionValue] = useState('gender');
   const [optionValueTwo, setOptionValueTwo] = useState('All');
 
   useEffect(() => {
-    getStarWarsPeople()
-      .then((people) => {
-        setData(people.map((p) => p));
-        setNewData(people.map((p) => p));
-      })
-      .catch(console.error);
+    axios
+      .get('https://akabab.github.io/starwars-api/api/all.json')
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
-  useEffect(() => {
-    const select = Array.from(
-      new Set(data?.map((el) => Object.entries(el).find((x) => x[0] === `${optionValue}` && x)[1])),
-    );
-    optionValue === 'gender'
-      ? setSelectData(['All', 'male', 'n/a', 'female', 'hermaphrodite', 'none'])
-      : setSelectData(['All', ...select]);
-  }, [optionValue]);
+  console.log(data);
+
   /*фильтрация по данным из выпадающих списков*/
   const filterData =
     optionValueTwo !== 'All' ? data.filter((el) => el[optionValue].includes(optionValueTwo)) : data;
@@ -46,17 +38,14 @@ const Characters = memo(() => {
         <Loading />
       ) : (
         <div className={'characters'}>
-          <div className={'characters-block'}>
-            <span className={'characters-title'}>
-              <span className={'characters-title-weight'}>{data?.length} Peoples</span> for you to
+          <div className={'characters__block'}>
+            <span className={'characters__title'}>
+              <span className={'characters__title_weight'}>{data?.length} Peoples</span> for you to
               choose your favorite
             </span>
             <div className={'filters'}>
               <select className={'select'} onChange={(e) => setOptionValue(e.target.value)}>
                 <option value={'gender'}>gender</option>
-                <option value={'eye_color'}>year color</option>
-                <option value={'hair_color'}>hair color</option>
-                <option value={'skin_color'}>skin color</option>
               </select>
               <select className={'select'} onChange={(e) => setOptionValueTwo(e.target.value)}>
                 {selectData?.map((el, index) => {
@@ -68,7 +57,7 @@ const Characters = memo(() => {
                 })}
               </select>
             </div>
-            <Cards newData={newData} />
+            <Cards newData={newData.length < 1 ? data : newData} />
           </div>
         </div>
       )}

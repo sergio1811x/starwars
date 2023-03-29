@@ -8,16 +8,16 @@ const Home = () => {
     <>
       <Header />
       <div className={'home'}>
-        <div className={'home-block'}>
-          <span className={'home-title'}>
-            Find <span className={'home-title-weight'}> all your favorite character </span>
+        <div className={'home__block'}>
+          <span className={'home__title'}>
+            Find <span className={'home__title_weight'}> all your favorite character </span>
             character
           </span>
-          <h2 className={'home-info'}>
+          <h2 className={'home__info'}>
             You can find out all the information about your favorite characters
           </h2>
           <Link to={'/characters'}>
-            <button className={'home-button'}>See more...</button>
+            <button className={'home__button'}>See more...</button>
           </Link>
         </div>
         <div>

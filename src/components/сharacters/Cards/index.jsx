@@ -34,7 +34,7 @@ const Cards = memo(({ newData }) => {
   };
   return (
     <>
-      <div className={'card-block'}>
+      <div className={'card__block'}>
         <Card
           currentPageData={currentPageData}
           setIsComponentVisible={setIsComponentVisible}
@@ -49,7 +49,7 @@ const Cards = memo(({ newData }) => {
           />
         )}
       </div>
-      <div className={'pagination-block'}>
+      <div className={'pagination__block'}>
         {/*Пагинация*/}
         <ReactPaginate
           nextLabel="next >"

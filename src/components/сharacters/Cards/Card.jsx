@@ -13,24 +13,24 @@ const Card = memo(({ currentPageData, setIsComponentVisible, setModalData }) => 
               setModalData(el);
             }}
           >
-            <div className={'card-items'}>
-              <div className={'card-name'}>{el.name}</div>
-              <div className={'card-parameters'}>
-                {el.height !== 'unknown' && (
-                  <div className={'parameters-block'}>
+            <div className={'card__items'}>
+              <div className={'card__name'}>{el.name}</div>
+              <div className={'card__parameters'}>
+                {el.height && (
+                  <div className={'parameters__block'}>
                     <span>{el.height}</span>
                     <p>height</p>
                   </div>
                 )}
-                {el.mass !== 'unknown' && (
-                  <div className={'parameters-block'}>
+                {el.mass && (
+                  <div className={'parameters__block'}>
                     <span>{el.mass}</span>
                     <p>mass</p>
                   </div>
                 )}
               </div>
-              <div className={'card-bottom'}>
-                {el.gender !== 'unknown' && (
+              <div className={'card__bottom'}>
+                {el.gender && (
                   <span
                     style={{
                       background:
@@ -44,9 +44,7 @@ const Card = memo(({ currentPageData, setIsComponentVisible, setModalData }) => 
                     {el.gender}
                   </span>
                 )}
-                {el.birth_year !== 'unknown' && (
-                  <span style={{ background: '#07D6F2' }}>{el.birth_year}</span>
-                )}
+                {el.born && <span style={{ background: '#07D6F2' }}>{-el.born} BBY</span>}
               </div>
             </div>
           </div>

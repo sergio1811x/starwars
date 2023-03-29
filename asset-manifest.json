@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/starwars/static/css/main.87a9656f.css",
-    "main.js": "/starwars/static/js/main.809202b7.js",
+    "main.css": "/starwars/static/css/main.d1ef1071.css",
+    "main.js": "/starwars/static/js/main.6c1c6873.js",
     "static/media/404.png": "/starwars/static/media/404.96dda8f9252bebda4633.png",
     "static/media/star-wars-star.gif": "/starwars/static/media/star-wars-star.5d1b904ccc34230709fa.gif",
     "static/media/yoda.png": "/starwars/static/media/yoda.1783c732b41f4e6c26e5.png",
-    "static/media/female.png": "/starwars/static/media/female.f403a69bf5c5d759096c.png",
-    "static/media/gender.png": "/starwars/static/media/gender.386a5f879c6228d67d8a.png",
     "static/media/logo.png": "/starwars/static/media/logo.6539bd043893085261e1.png",
     "index.html": "/starwars/index.html",
-    "main.87a9656f.css.map": "/starwars/static/css/main.87a9656f.css.map",
-    "main.809202b7.js.map": "/starwars/static/js/main.809202b7.js.map"
+    "main.d1ef1071.css.map": "/starwars/static/css/main.d1ef1071.css.map",
+    "main.6c1c6873.js.map": "/starwars/static/js/main.6c1c6873.js.map"
   },
   "entrypoints": [
-    "static/css/main.87a9656f.css",
-    "static/js/main.809202b7.js"
+    "static/css/main.d1ef1071.css",
+    "static/js/main.6c1c6873.js"
   ]
 }
